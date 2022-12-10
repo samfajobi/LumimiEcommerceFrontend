@@ -5,6 +5,7 @@ import ProductsPage from "./components/ProductsPage/ProductsPage";
 import ProductPage from "./components/ProductPage/ProductPage";
 import Cart from "./components/Cart/Cart";
 import SignupScreen from "./screens/SignUpScreen";
+import SigninScreen from './screens/SignInScreen';
 import {BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { getError } from './utils';
 
@@ -19,6 +20,7 @@ function App() {
         <Route path="/products/:category" element={<ProductsPage />} /> 
         <Route path="/product/:id" element={<ProductPage />} />
         <Route path="/signup" element={<SignupScreen />} />
+        <Route path="/signin" element={<SigninScreen />} />
         <Route path="/cart" element={<Cart />} />
       </Routes>
     </Router>
