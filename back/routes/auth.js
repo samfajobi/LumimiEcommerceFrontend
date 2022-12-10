@@ -6,8 +6,8 @@ const Jwt = require("jsonwebtoken");
 
 // Register
 
-router.post('/register', async ( req, res) => {
-    
+router.post('/signup', async ( req, res) => {
+      
     const newUser = new UserModel({
         username: req.body.username,
         email: req.body.email,
@@ -33,7 +33,7 @@ router.post('/register', async ( req, res) => {
 
 // Login
 
-router.post('/login', async ( req, res) => {
+router.post('/signin', async ( req, res) => {
       
    try {
     const user = await UserModel.findOne({ username: req.body.username});

@@ -3,7 +3,7 @@ import SearchIcon  from '@material-ui/icons/Search';
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import styled from 'styled-components'
 import { Badge } from '@material-ui/core';
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import { Link } from "react-router-dom"
 
 
@@ -95,8 +95,8 @@ const MenuItem = styled.div`
 
 
 const Navbar = () => {
-  const quantity  = useSelector((state) => state.cart.quantity )
-  console.log(quantity )
+  // const quantity  = useSelector((state) => state.cart.quantity )
+  // console.log(quantity )
   
   return (
     <Container>
@@ -112,11 +112,15 @@ const Navbar = () => {
               <Logo>LUMIMI</Logo>
             </Center>
             <Right>
-              <MenuItem>REGISTER</MenuItem>
-              <MenuItem>LOGIN</MenuItem>
+              <Link to="/signup">
+                <MenuItem>REGISTER</MenuItem>
+              </Link>
+              <Link to="/">
+                <MenuItem>LOGIN</MenuItem>
+              </Link>
               <MenuItem>
               <Link to="/cart">
-                <Badge badgeContent={quantity} color="primary">
+                <Badge  color="primary">
                   <ShoppingCartOutlinedIcon />
                 </Badge>
               </Link>

@@ -3,17 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { Provider } from "react-redux";
-import { PersistGate } from 'redux-persist/integration/react'
+import { HelmetProvider } from 'react-helmet-async';
+import { StoreProvider } from './Store';
+// import { Provider } from "react-redux";
+// import { PersistGate } from 'redux-persist/integration/react'
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider>
-      <PersistGate>
-        <App />
-      </PersistGate>
-    </Provider>
+    <StoreProvider>
+      <HelmetProvider>
+          <App />
+      </HelmetProvider>
+    </StoreProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

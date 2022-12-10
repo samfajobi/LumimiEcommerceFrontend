@@ -5,6 +5,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { Helmet } from 'react-helmet-async';
 import { useContext, useEffect, useState } from 'react';
+import 'react-toastify/dist/ReactToastify.css';
 import { Store } from '../Store';
 import { toast } from 'react-toastify';
 import { getError } from '../utils';
@@ -15,13 +16,14 @@ export default function SignupScreen() {
   const redirectInUrl = new URLSearchParams(search).get('redirect');
   const redirect = redirectInUrl ? redirectInUrl : '/';
 
-  const [name, setName] = useState(''); 
+  const [username, setName] = useState(''); 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { userInfo } = state;
+  
   const submitHandler = async (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
@@ -29,14 +31,15 @@ export default function SignupScreen() {
       return;
     }
     try {
-      const { data } = await Axios.post('/api/users/signup', {
-        name,
+      const { data } = await Axios.post('http://localhost:5000/api/auth/signup', {
+        username,
         email,
         password,
       });
       ctxDispatch({ type: 'USER_SIGNIN', payload: data });
       localStorage.setItem('userInfo', JSON.stringify(data));
       navigate(redirect || '/');
+      console.log(data)
     } catch (err) {
       toast.error(getError(err));
     }
