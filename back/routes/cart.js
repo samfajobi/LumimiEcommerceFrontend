@@ -13,7 +13,7 @@ router.put("/:id", async ( req, res) => {
 }) 
    
 router.delete("/:id", async ( res, req ) => {
-    try{
+    try{ 
         await UserCart.findByIdAndDelete(req.params.id)
         res.status(200).json("Your Cart has been deleted Successfully")
     } catch(err) {
@@ -21,11 +21,11 @@ router.delete("/:id", async ( res, req ) => {
     }
 });
   
-  router.get("/:id", async (res, req ) => {
+router.get("/:id", async (res, req ) => {
     try {
         const UserCartOrder = await UserCart.findById(req.params.id)
         res.status(200).json(UserCartOrder)
-    } catch(err) {
+    } catch(err) {  
         res.status(403).json(err)
     }   
 })

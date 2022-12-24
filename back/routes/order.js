@@ -1,8 +1,17 @@
 const express = require("express");
 const router = express.Router();
-const UserOrder = require('./models/Order')
+const UserOrder = require('../models/Order')
 
 
+router.post("/",   async ( req, res ) => {
+    const newOrder = new UserOrder(req.body)
+    try{
+        const UserOrder = await newOrder.save()
+        res.status(200).json(UserOrder)
+    } catch (err) {
+        res.status(403).json(err)
+    }
+});
 
 router.put("/:id", async (res, req ) => {
     try{

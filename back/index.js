@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const userRoute = require('./routes/user')
 const authRoute = require('./routes/auth')
 const cartRoute = require("./routes/cart")
+const orderRoute = require("./routes/order")
 const productRoute = require("./routes/products")
 const cors = require("cors")
 const path = require("path")
@@ -30,10 +31,11 @@ mongoose.connect(process.env.DATABASE_URL)
 .then( () => console.log('DB Connection Successful'))
 .catch( err => console.log(err))
 
-app.use('/api/user', userRoute)
-app.use('/api/auth', authRoute)
-app.use("/api/cart", cartRoute)
-app.use("/api/products", productRoute)
+app.use('/api/user', userRoute);
+app.use('/api/auth', authRoute);
+app.use("/api/cart", cartRoute);    
+app.use("/api/orders", orderRoute);
+app.use("/api/products", productRoute);
 
 if (process.env.NODE === "production") {
     // set Static File
