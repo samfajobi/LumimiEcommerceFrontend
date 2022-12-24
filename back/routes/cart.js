@@ -5,13 +5,13 @@ const UserCart = require("../models/Cart")
 
 router.put("/:id", async ( req, res) => {
     try{
-        const UpdateUserCart = await  UserCart.fiindByIdAndUpdate(req,params.id)
+        const UpdateUserCart = await  UserCart.findByIdAndUpdate(req,params.id)
         res.status(200).json(UpdateUserCart)
     } catch(err) {
         res.status(403).json(err)
     }
 }) 
-
+   
 router.delete("/:id", async ( res, req ) => {
     try{
         await UserCart.findByIdAndDelete(req.params.id)
@@ -20,16 +20,16 @@ router.delete("/:id", async ( res, req ) => {
         res.status(404).json(err)
     }
 });
-
-router.get("/:id", async (res, req ) => {
+  
+  router.get("/:id", async (res, req ) => {
     try {
         const UserCartOrder = await UserCart.findById(req.params.id)
         res.status(200).json(UserCartOrder)
     } catch(err) {
         res.status(403).json(err)
-    }
+    }   
 })
-  
+    
 router.get("/",   async ( res, req ) => {
     try {
         const UserCartOrders  = await UserCart.find()
@@ -39,5 +39,5 @@ router.get("/",   async ( res, req ) => {
     }
 })
 
-
+ 
 module.exports = router;

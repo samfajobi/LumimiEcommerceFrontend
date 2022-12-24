@@ -31,12 +31,13 @@ router.post('/signup', async ( req, res) => {
 })
 
 
+
 // Login
 
 router.post('/signin', async ( req, res) => {
       
    try {
-    const user = await UserModel.findOne({ username: req.body.username});
+    const user = await UserModel.findOne({ email: req.body.email});
     !user && res.status(401).json("Wrong Infos")
 
     const decryptHassedPassword = CryptoJS.AES.decrypt(user.password, process.env.Sec_Pass)

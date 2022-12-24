@@ -72,11 +72,11 @@ router.get('/',  async ( req, res) => {
     try{
         const findAllUser = query ? await UserModel.find().sort({_id: -1}).limit(2) : await UserModel.find()
         res.status(200).json(findAllUser)
-
     } catch(err) {
         res.status(403).json(query) 
     } 
 })
+
 
 
 
