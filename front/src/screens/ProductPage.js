@@ -1,17 +1,15 @@
 import styled from "styled-components";
-import Navbar from "../Navbar/Navbar";
-import Announcement from "../Announcements/Announcement";
-import InfoSection from "../InfoSection/InfoSection";
-import Footer from "../Footer/Footer";
+import Navbar from "../components/Navbar/Navbar";
+import Announcement from "../components/Announcements/Announcement";
+import InfoSection from "../components/InfoSection/InfoSection";
+import Footer from "../components/Footer/Footer";
 import RemoveIcon from '@material-ui/icons/Remove';
 import AddIcon from '@material-ui/icons/Add';
 import axios from "axios";
 import { useLocation } from "react-router";
 import { useState, useEffect } from 'react'
-import { addProducts } from "../../container/redux/cartReduxSlice";
+import { addProducts } from "../container/redux/cartReduxSlice";
 import { useDispatch } from "react-redux";
-
-
 
 
 
@@ -80,8 +78,6 @@ const FilterSize = styled.select`
   margin-left: 10px;
   padding: 8px;
 `   
-
-
 
 const ChangeProdctNoContainer = styled.div`
   margin-top: 35px;
@@ -160,7 +156,6 @@ const ProductPage = () => {
   
   const handleClick = () => {
     dispatch(addProducts({...product, quantity}))
-
   }
 
 

@@ -1,8 +1,8 @@
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Home from "./components/Home/Home";
-import ProductsPage from "./components/ProductsPage/ProductsPage";
-import ProductPage from "./components/ProductPage/ProductPage";
+import ProductsPage from "./screens/ProductsPage";
+import ProductPage from "./screens/ProductPage";
 import Cart from "./components/Cart/Cart";
 import SignupScreen from "./screens/SignUpScreen";
 import SigninScreen from './screens/SignInScreen';
@@ -10,7 +10,7 @@ import {BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { getError } from './utils';
 
 
-function App() {
+function App() { 
   return (
     <Router>
 

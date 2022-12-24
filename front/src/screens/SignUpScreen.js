@@ -5,7 +5,6 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { Helmet } from 'react-helmet-async';
 import { useContext, useEffect, useState } from 'react';
-import 'react-toastify/dist/ReactToastify.css';
 import { Store } from '../Store';
 import { toast } from 'react-toastify';
 import { getError } from '../utils';
@@ -22,9 +21,9 @@ export default function SignupScreen() {
   const [confirmPassword, setConfirmPassword] = useState('');
 
   const { state, dispatch: ctxDispatch } = useContext(Store);
-  const { userInfo } = state;
+  const { userInfo } = state; 
   
-  const submitHandler = async (e) => {
+  const submitHandler = async (e) => { 
     e.preventDefault();
     if (password !== confirmPassword) {
       toast.error('Passwords do not match');
@@ -40,7 +39,7 @@ export default function SignupScreen() {
       localStorage.setItem('userInfo', JSON.stringify(data));
       navigate(redirect || '/');
       console.log(data)
-    } catch (err) {
+    } catch (err) {   
       toast.error(getError(err));
     }
   };

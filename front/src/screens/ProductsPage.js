@@ -1,11 +1,11 @@
 import styled from "styled-components"
 import { useLocation } from 'react-router'
 import { useState } from 'react'
-import Navbar from "../Navbar/Navbar"
-import Announcement from "../Announcements/Announcement"
-import InfoSection from "../InfoSection/InfoSection"
-import Footer from "../Footer/Footer"
-import Products from "../Products/Products"
+import Navbar from "../components/Navbar/Navbar"
+import Announcement from "../components/Announcements/Announcement"
+import InfoSection from "../components/InfoSection/InfoSection"
+import Footer from "../components/Footer/Footer"
+import Products from "../components/Products/Products"
 
 
 const Container = styled.div`
