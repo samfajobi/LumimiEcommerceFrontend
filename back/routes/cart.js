@@ -10,7 +10,7 @@ router.put("/:id", async ( req, res) => {
     } catch(err) {
         res.status(403).json(err)
     }
-}) 
+}); 
    
 router.delete("/:id", async ( res, req ) => {
     try{ 
