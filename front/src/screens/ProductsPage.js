@@ -51,12 +51,12 @@ const ProductsPage = () => {
   const [ sort, setSort ] =  useState("newest");
 
   const handleFilter = (event) => {
-    const value = event.target.value
+    const value = event.target.value;
     
     setFilter({
       ...filters,
       [event.target.name]: value})
-  }
+  };
 
 
   return (

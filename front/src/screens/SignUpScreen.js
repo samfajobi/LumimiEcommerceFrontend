@@ -39,7 +39,7 @@ export default function SignupScreen() {
       localStorage.setItem('userInfo', JSON.stringify(data));
       navigate(redirect || '/');
       console.log(data)
-    } catch (err) {   
+    } catch (err) {      
       toast.error(getError(err));
     }
   };

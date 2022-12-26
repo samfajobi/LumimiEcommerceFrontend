@@ -6,7 +6,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { HelmetProvider } from 'react-helmet-async';
 import { StoreProvider } from './Store';
-// import { Provider } from "react-redux";
+import { Provider } from "react-redux";
+import {store} from "./container/redux/store"
 // import { PersistGate } from 'redux-persist/integration/react'
 
 
@@ -14,7 +15,9 @@ ReactDOM.render(
   <React.StrictMode>
     <StoreProvider>
       <HelmetProvider>
-          <App />
+        <Provider store={store}>
+            <App />
+        </Provider>     
       </HelmetProvider>
     </StoreProvider>
   </React.StrictMode>,
