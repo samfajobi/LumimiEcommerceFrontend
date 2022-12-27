@@ -129,13 +129,14 @@ const ProductPage = () => {
   const [ quantity, setQuantity] = useState(1)
   const dispatch = useDispatch()
 
+  
   const handleQuantity  = (type) => {
-    if( type === "dec") {
+    if( type === "inc") {
       setQuantity( quantity + 1)
     } else {
-       quantity > 1 && setQuantity (quantity - 1 )
+       quantity > 1 && setQuantity (quantity - 1)
     }
-  }
+  };
 
 
 
@@ -144,18 +145,19 @@ const ProductPage = () => {
       try {
         const response = await axios.get("http://localhost:5000/api/products/" + id)
         setProduct(response.data)
-
       } catch(err) {
         console.log(err) 
       }
     }
     fetchProduct()
   }, [id])
+
+  console.log(product)
     
   
   const handleClick = () => {
     dispatch(addProducts({...product, quantity}))
-  }
+  };
 
 
   return (
@@ -180,15 +182,15 @@ const ProductPage = () => {
                     <Filter>
                         <FilterTitle>Size</FilterTitle>
                         <FilterSize>
-                          <FilterSizeOption>{product.size}</FilterSizeOption>
+                              <FilterSizeOption>{product.size}</FilterSizeOption>
                         </FilterSize>
                     </Filter>
                   </FilterContainer>
                   <ChangeProdctNoContainer>
                     <AmountContainer>
-                        <RemoveIcon onClick={() => handleQuantity("inc") }/>
+                        <RemoveIcon onClick={() => handleQuantity("dec") }/>
                         <Amount>{quantity}</Amount>
-                        <AddIcon  onClick={() => handleQuantity("dec")}/>
+                        <AddIcon  onClick={() => handleQuantity("inc")}/>
                     </AmountContainer>
                     <Button onClick={handleClick}>Add to Cart</Button>
                   </ChangeProdctNoContainer>

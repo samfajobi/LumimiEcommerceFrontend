@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { useState, useEffect } from "react";
 import Product from '../Product/Product'
-import { productData } from '../../data'
+// import { productData } from '../../data'
 import axios from "axios";
 
 const Container = styled.div`
@@ -15,22 +15,20 @@ const Products = ({cat, sort, filters}) => {
   const [ filteredProducts, setFilteredProducts ] = useState([]);
 
 
-
   useEffect( () => {
     const getProducts = async () => {
       try {
-        const response = await axios.get(
+        const response = await axios.get( 
           cat ? `http://localhost:5000/api/products?category=${cat}` 
         : "http://localhost:5000/api/products" )
         console.log(response.data)
         setProducts(response.data)
       } catch(err) {
         console.log(err)
-      }
-     
+      } 
     }
     getProducts()
-  }, [cat])
+  }, [cat]);
 
 
    // ReCheck and Understand Well
@@ -43,44 +41,37 @@ const Products = ({cat, sort, filters}) => {
         )
       )
     )
-   
   }, [products, cat, filters])
-
 
 
    // ReCheck and Understand well
 
   useEffect( () => {
-    const sortProducts = () => {
       if(( sort === "newest" )) {
-        setFilteredProducts( (prev) => {
+        setFilteredProducts( (prev) => 
           [...prev].sort((a, b) => a.createdAt - b.createdAt)
-        })
+        )
       } else if(( sort === "asc")) {
-        setFilteredProducts( (prev) => {
+        setFilteredProducts( (prev) => 
           [...prev].sort((a, b) => a.price - b.price)
-        })
+        )
       } else {
-        setFilteredProducts((prev) => {
+        setFilteredProducts((prev) => 
           [...prev].sort((a, b) => b.price - a.price)
-        })
+        )
       } 
-    }
-  })
+  }, [sort]);
 
-
-
-  
 
   return (
     <Container>
-        { cat ? filteredProducts.map( (product) => (
+        { cat ? filteredProducts?.map( (product) => (
             <Product key={product.id} product={product}/>
-        )) : productData.slice(0,7).map( (product) => (
+        )) : products.slice(0,8).map( (product) => (
             <Product key={product.id} product={product}/>))}
-
     </Container>
   )
 }
+
 
 export default Products;

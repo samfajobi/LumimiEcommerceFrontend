@@ -5,6 +5,7 @@ import InfoSection from "../InfoSection/InfoSection"
 import Footer from "../Footer/Footer"
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
+import DeleteIcon from '@material-ui/icons/Delete';
 import { useSelector } from "react-redux";
 
 
@@ -113,6 +114,10 @@ const ProductAmount = styled.div`
 const PriceAmount = styled.div`
   font-size: 30px;
   font-weight: 300;
+ 
+`
+const DeleteCartIcon = styled.div`
+ 
 `
 
 const Hr = styled.hr`
@@ -163,7 +168,7 @@ const Button = styled.button`
 
 const Cart = () => {
 
-  const total = useSelector((state) => state.cart.total )
+  const CartTotal = useSelector((state) => state.cart.total )
   const cartProducts = useSelector((state) => state.cart.products )
 
   return (
@@ -183,37 +188,40 @@ const Cart = () => {
           </Top>
           <Bottom>
             <Info>
-              {cartProducts.map((product) => (
+              {cartProducts?.map((product) => (
               <Product>
                 <ProductDetails>
-                  <Image src={product.img}/>
+                  <Image src={product?.img}/>
                   <Details>  
-                    <ProductName><b>Product:</b> {product.title}</ProductName>
-                    <ProductId><b>ID:</b> {product._id} </ProductId>
-                    <ProductColor color ={product.color}/>
-                    <ProductSize><b>Size:</b> {product.size}</ProductSize>
+                    <ProductName><b>Product:</b> {product?.title}</ProductName>
+                    <ProductId><b>ID:</b> {product?._id} </ProductId>
+                    <ProductColor color ={product?.color}/>
+                    <ProductSize><b>Size:</b> {product?.size}</ProductSize>
                   </Details>
                 </ProductDetails>
                 <PriceDetails>
                   <ProductAmountContainer>
-                    <AddIcon />
-                    <ProductAmount>{product.quantity}</ProductAmount>
-                    <RemoveIcon />
+                      <RemoveIcon />
+                    <ProductAmount>{product?.quantity}</ProductAmount>
+                      <AddIcon />
                   </ProductAmountContainer>
                   <PriceAmount>
-                   {product.price * product.quantity}
+                   {product?.price * product?.quantity}
                   </PriceAmount>
+                  <DeleteCartIcon>
+                    <DeleteIcon /> Remove
+                  </DeleteCartIcon>
                 </PriceDetails>
               </Product>
               ))}
-              <Hr></Hr>
+              <Hr/>
               
             </Info>
             <Summary>
               <SummaryTitle>ORDER NOW</SummaryTitle>
               <SummaryItems>
                 <SummaryItemText>SubTotal</SummaryItemText>
-                <SummaryItemAmount>{total}</SummaryItemAmount>
+                <SummaryItemAmount>{CartTotal}</SummaryItemAmount>
               </SummaryItems>  
               <SummaryItems>
                 <SummaryItemText>Shipping Fee</SummaryItemText>
@@ -225,7 +233,7 @@ const Cart = () => {
               </SummaryItems>  
               <SummaryItems type='total'>
                 <SummaryItemText>Total:</SummaryItemText>
-                <SummaryItemAmount>{total}</SummaryItemAmount>
+                <SummaryItemAmount>{CartTotal}</SummaryItemAmount>
               </SummaryItems> 
               <Button>CHECKOUT NOW</Button> 
             </Summary>

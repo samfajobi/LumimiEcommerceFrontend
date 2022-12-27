@@ -60,7 +60,7 @@ const ProductsPage = () => {
 
 
   return (
-   
+    
       <Container>
           <Navbar />
           <Announcement />

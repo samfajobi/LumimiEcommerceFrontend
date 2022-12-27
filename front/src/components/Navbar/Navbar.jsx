@@ -3,7 +3,7 @@ import SearchIcon  from '@material-ui/icons/Search';
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import styled from 'styled-components'
 import { Badge } from '@material-ui/core';
-// import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom"
 
 
@@ -95,7 +95,7 @@ const MenuItem = styled.div`
 
 
 const Navbar = () => {
-  // const quantity  = useSelector((state) => state.cart.quantity )
+  const quantity  = useSelector((state) => state.cart.quantity )
   // console.log(quantity )
   
   return (
@@ -120,7 +120,7 @@ const Navbar = () => {
               </Link>
               <MenuItem>
               <Link to="/cart">
-                <Badge  color="primary">
+                <Badge badgeContent={quantity} color="primary">  
                   <ShoppingCartOutlinedIcon />
                 </Badge>
               </Link>
