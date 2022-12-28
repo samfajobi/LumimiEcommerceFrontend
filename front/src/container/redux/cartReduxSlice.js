@@ -14,7 +14,12 @@ const cartSlice = createSlice({
             state.total += action.payload.price * action.payload.quantity;
             state.products.push(action.payload.product)
         }
-
+        // deleteProducts: (state, action) => {
+        //     state.products.filter(
+        //         (item) => item?._id !== action.payload.Id
+        //     );
+        // }             
+                  
     }
 });
 

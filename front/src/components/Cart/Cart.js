@@ -1,3 +1,5 @@
+// import { useState, useEffect } from 'react';
+// import axios from "axios"
 import styled from "styled-components"
 import Navbar from "../Navbar/Navbar"
 import Announcement from "../Announcements/Announcement"
@@ -6,7 +8,10 @@ import Footer from "../Footer/Footer"
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
 import DeleteIcon from '@material-ui/icons/Delete';
-import { useSelector } from "react-redux";
+// import { deleteProducts } from "../../container/redux/cartReduxSlice";
+import { useSelector, useDispatch } from "react-redux";
+// import { useLocation } from 'react-router-dom';
+
 
 
 
@@ -167,9 +172,49 @@ const Button = styled.button`
 
 
 const Cart = () => {
+  /* const dispatch = useDispatch();
 
+  const location = useLocation();
+  const id = location.pathname.split("/")[2]
+  const [quantity, setQuantity] = useState([]) */
+  /* const [product, setProduct] = useState([]); */
   const CartTotal = useSelector((state) => state.cart.total )
   const cartProducts = useSelector((state) => state.cart.products )
+
+
+/*   
+  const handleQuantity  = (type) => {
+    if( type === "inc") {
+      setQuantity( quantity + 1)
+    } else {
+       quantity > 1 && setQuantity (quantity - 1)
+    }
+  }; */
+
+
+/* 
+  useEffect( () => {
+    const fetchProduct = async () => {
+      try {
+        const response = await axios.get("http://localhost:5000/api/products/" + id)
+        setProduct(response.data)
+      } catch(err) {
+        console.log(err) 
+      }
+    }
+    fetchProduct()
+  }, [id]) */
+
+  
+  /* const handleDeleteClick = () => {
+    dispatch(deleteProducts({ Id: product?._id}))
+  }; */
+/* 
+  const handleClick = () => {
+    dispatch(addProducts({...product, quantity}))
+  }; */
+
+
 
   return (
     <Container>
@@ -201,9 +246,9 @@ const Cart = () => {
                 </ProductDetails>
                 <PriceDetails>
                   <ProductAmountContainer>
-                      <RemoveIcon />
-                    <ProductAmount>{product?.quantity}</ProductAmount>
-                      <AddIcon />
+                      <RemoveIcon/>
+                       <ProductAmount>{product?.quantity}</ProductAmount>
+                      <AddIcon/>
                   </ProductAmountContainer>
                   <PriceAmount>
                    {product?.price * product?.quantity}
@@ -235,7 +280,9 @@ const Cart = () => {
                 <SummaryItemText>Total:</SummaryItemText>
                 <SummaryItemAmount>{CartTotal}</SummaryItemAmount>
               </SummaryItems> 
-              <Button>CHECKOUT NOW</Button> 
+              <Link>
+                <Button>CHECKOUT NOW</Button>
+              </Link>
             </Summary>
           </Bottom>
         </Wrapper>

@@ -27,7 +27,7 @@ function reducer(state, action) {
     case 'SET_FULLBOX_OFF':
       return { ...state, fullBox: false };
 
-    case 'CART_ADD_ITEM':
+    case 'CART_ADD_ITEM': 
       // add to cart
       const newItem = action.payload;
       const existItem = state.cart.cartItems.find(

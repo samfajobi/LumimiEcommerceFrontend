@@ -6,6 +6,7 @@ import ProductPage from "./screens/ProductPage";
 import Cart from "./components/Cart/Cart";
 import SignupScreen from "./screens/SignUpScreen";
 import SigninScreen from './screens/SignInScreen';
+import PaymentPage from './screens/PaymentPage';
 import {BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { getError } from './utils';
 
@@ -22,6 +23,7 @@ function App() {
         <Route path="/signup" element={<SignupScreen />} />
         <Route path="/signin" element={<SigninScreen />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/payment" element={<PaymentPage />} />
       </Routes>
     </Router>
   );

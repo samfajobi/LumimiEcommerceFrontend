@@ -128,8 +128,8 @@ const ProductPage = () => {
   const [ product, setProduct] = useState([])
   const [ quantity, setQuantity] = useState(1)
   const dispatch = useDispatch()
+           
 
-  
   const handleQuantity  = (type) => {
     if( type === "inc") {
       setQuantity( quantity + 1)
