@@ -10,6 +10,7 @@ import RemoveIcon from '@material-ui/icons/Remove';
 import DeleteIcon from '@material-ui/icons/Delete';
 // import { deleteProducts } from "../../container/redux/cartReduxSlice";
 import { useSelector, useDispatch } from "react-redux";
+import  { Link } from "react-router-dom"
 // import { useLocation } from 'react-router-dom';
 
 
@@ -280,7 +281,7 @@ const Cart = () => {
                 <SummaryItemText>Total:</SummaryItemText>
                 <SummaryItemAmount>{CartTotal}</SummaryItemAmount>
               </SummaryItems> 
-              <Link>
+              <Link to="/payment">
                 <Button>CHECKOUT NOW</Button>
               </Link>
             </Summary>

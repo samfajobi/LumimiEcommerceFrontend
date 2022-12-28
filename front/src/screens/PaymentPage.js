@@ -1,9 +1,20 @@
-import React from 'react'
+import React, {  useState } from 'react'
 import styles from "./payment.module.css"
 
 
 
 const PaymentPage = () => {
+
+
+ const publicKey = "pk_test_eca2556b29edb40e2993af4d59b7bc85a296d452"
+  const amount = 1000000 // Remember, set in kobo!
+  const [email, setEmail] = useState("")
+  const [name, setName] = useState("")
+  const [phone, setPhone] = useState("")
+
+
+
+
   return (
     <div className={styles.App}>
     <div className={styles.container}>
@@ -23,15 +34,27 @@ const PaymentPage = () => {
         <div className={styles.checkoutForm}>
           <div className={styles.checkoutField}>
             <label>Name</label>
-            <input/>
+            <input
+             type="text"
+             id="name"
+             onClick={ (e) => setName(e.target.value)}
+            />
           </div>
           <div className={styles.checkoutField}>
             <label>Email</label>
-            <input/>
+            <input
+              type="text"
+              id="name"
+              onClick={ (e) => setEmail(e.target.value)}
+            />
           </div>
           <div className={styles.checkoutField}>
             <label>Phone</label>
-            <input/>
+            <input
+              type="text"
+              id="name"
+              onClick={ (e) => setPhone(e.target.value)}
+            />
           </div>
         </div>
       </div>
