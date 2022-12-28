@@ -1,17 +1,31 @@
 import React, {  useState } from 'react'
 import styles from "./payment.module.css"
+import { PaystackButton } from 'react-paystack'
 
 
 
 const PaymentPage = () => {
 
 
- const publicKey = "pk_test_eca2556b29edb40e2993af4d59b7bc85a296d452"
+ const publicKey = process.env.REACT_APP_PAYSTACK_PUBLIC_KEY;
   const amount = 1000000 // Remember, set in kobo!
   const [email, setEmail] = useState("")
   const [name, setName] = useState("")
   const [phone, setPhone] = useState("")
 
+  const componentProps = {
+    email,
+    amount,
+    metadata: {
+      name,
+      phone, 
+    },
+    publicKey,
+    text: "Pay Now",
+    onSuccess: () =>
+      alert("Thanks for doing business with us! Come back soon!!"),
+    onClose: () => alert("Wait! Don't leave :("),
+  } 
 
 
 
@@ -32,7 +46,7 @@ const PaymentPage = () => {
       </div>
       <div className={styles.checkout}>
         <div className={styles.checkoutForm}>
-          <div className={styles.checkoutField}>
+            <div className={styles.checkoutField}>
             <label>Name</label>
             <input
              type="text"
@@ -44,7 +58,7 @@ const PaymentPage = () => {
             <label>Email</label>
             <input
               type="text"
-              id="name"
+              id="email"
               onClick={ (e) => setEmail(e.target.value)}
             />
           </div>
@@ -52,10 +66,11 @@ const PaymentPage = () => {
             <label>Phone</label>
             <input
               type="text"
-              id="name"
+              id="phone"
               onClick={ (e) => setPhone(e.target.value)}
             />
           </div>
+          <PaystackButton className={styles.paystackButton}  {...componentProps}/>  
         </div>
       </div>
     </div>
