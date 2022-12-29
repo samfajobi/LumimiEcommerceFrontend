@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import ItemCategory from "../ItemCategory/ItemCategory"
-import { CategoryData } from '../../data.js'
+import ItemCategory from "./ItemCategory"
+import { CategoryData } from '../data.js'
 
 
 

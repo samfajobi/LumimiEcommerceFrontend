@@ -1,5 +1,5 @@
 import React, {  useState } from 'react'
-import styles from "./payment.module.css"
+import styles from "./styles/payment.module.css"
 import { PaystackButton } from 'react-paystack'
 
 

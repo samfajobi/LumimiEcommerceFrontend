@@ -1,9 +1,9 @@
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Home from "./components/Home/Home";
+import Home from "./components/Home";
 import ProductsPage from "./screens/ProductsPage";
 import ProductPage from "./screens/ProductPage";
-import Cart from "./components/Cart/Cart";
+import Cart from "./components/Cart";
 import SignupScreen from "./screens/SignUpScreen";
 import SigninScreen from './screens/SignInScreen';
 import PaymentPage from './screens/PaymentPage';

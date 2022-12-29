@@ -1,10 +1,10 @@
 // import { useState, useEffect } from 'react';
 // import axios from "axios"
 import styled from "styled-components"
-import Navbar from "../Navbar/Navbar"
-import Announcement from "../Announcements/Announcement"
-import InfoSection from "../InfoSection/InfoSection"
-import Footer from "../Footer/Footer"
+import Navbar from "./Navbar"
+import Announcement from "./Announcement"
+import InfoSection from "./InfoSection"
+import Footer from "./Footer"
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
 import DeleteIcon from '@material-ui/icons/Delete';
