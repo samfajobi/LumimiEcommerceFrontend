@@ -56,7 +56,7 @@ const StyledMenu = styled((props) => (
   },
 }));
 
-export default function CustomizedMenus() {
+export default function CustomizedMenus2() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -98,10 +98,18 @@ export default function CustomizedMenus() {
           <FileCopyIcon />
         Orders
         </MenuItem>
+        <MenuItem onClick={handleClose} disableRipple>
+          <FileCopyIcon />
+        Inbox
+        </MenuItem>
+        <MenuItem onClick={handleClose} disableRipple>
+          <FileCopyIcon />
+       Wishlists
+        </MenuItem>
         <Divider sx={{ my: 0.5 }} />
         <MenuItem onClick={handleClose} disableRipple>
           <ArchiveIcon />
-         Wishlists
+         LogOut
         </MenuItem>
       </StyledMenu>
     </div>

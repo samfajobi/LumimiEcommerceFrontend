@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useContext }from 'react'
 import SearchIcon  from '@material-ui/icons/Search';
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import { Badge } from '@material-ui/core';
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom"
-import CustomizedMenus from "./UserDropDown"
+import CustomizedMenus from "./UserDropDown";
+import CustomizedMenus2 from "./UserDropDown2";
+
+import { Store } from '../Store';
 
   import {
   Container,
@@ -23,7 +26,9 @@ import CustomizedMenus from "./UserDropDown"
 
 const Navbar = () => {
   const quantity  = useSelector((state) => state.cart.quantity )
-  // console.log(quantity )
+  const { state } = useContext(Store);
+  const { userInfo } = state
+  console.log(userInfo.data.userData )
 
   return (
     <Container>
@@ -39,9 +44,14 @@ const Navbar = () => {
               <Logo>LUMIMI</Logo>
             </Center>
             <Right>
-              <RightDiv>
+              { !userInfo ?
+                 <RightDiv>
                 <CustomizedMenus />
-              </RightDiv>   
+              </RightDiv> :
+              <RightDiv>
+                <CustomizedMenus2 />
+              </RightDiv>  
+              }   
               <Link to="/signup">
                 <MenuItems>REGISTER</MenuItems>
               </Link>
