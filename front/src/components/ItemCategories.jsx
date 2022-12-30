@@ -13,7 +13,7 @@ const Container = styled.div`
     flex-direction: column;
     background: lightgray;
   }
-
+  
 `
 const ItemCategories = () => {
   
@@ -22,10 +22,8 @@ const ItemCategories = () => {
         {CategoryData.map( (item) => (
           <ItemCategory key={item.id}  item={item}/>
         ))}
-
       </Container>
-   
   )
-}
+}   
 
 export default ItemCategories

@@ -55,7 +55,7 @@ const Icon = styled.div`
   width: 70px
 
 `
-
+   
 
 const InfoSecton = () => {
   return (
@@ -72,6 +72,6 @@ const InfoSecton = () => {
       </Container>
     
   )
-}
+}    
 
-export default InfoSecton
+export default InfoSecton;      
