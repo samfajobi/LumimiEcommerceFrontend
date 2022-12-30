@@ -28,7 +28,7 @@ const Navbar = () => {
   const quantity  = useSelector((state) => state.cart.quantity )
   const { state } = useContext(Store);
   const { userInfo } = state
-  console.log(userInfo.data.userData )
+  
 
   return (
     <Container>
@@ -55,7 +55,7 @@ const Navbar = () => {
               <Link to="/signup">
                 <MenuItems>REGISTER</MenuItems>
               </Link>
-              <Link to="/">
+              <Link to="/signin">
                 <MenuItems>LOGIN</MenuItems>
               </Link>
               <MenuItems>

@@ -11,6 +11,7 @@ import FileCopyIcon from '@mui/icons-material/FileCopy';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
+import { Store } from '../Store';
 
 
 
@@ -66,6 +67,19 @@ export default function CustomizedMenus2() {
     setAnchorEl(null);
   };
 
+  const signoutHandler = () => {
+    ctxDispatch({ type: 'USER_SIGNOUT' });
+    localStorage.removeItem('userInfo');
+    localStorage.removeItem('shippingAddress');
+    localStorage.removeItem('paymentMethod');
+    window.location.href = '/signin';
+  };
+
+  const { state, dispatch: ctxDispatch } = useContext(Store);
+  const { userInfo } = state
+  console.log(userInfo);
+  console.log(userInfo?.username)
+
   return (
     <div>
       <Button
@@ -79,7 +93,7 @@ export default function CustomizedMenus2() {
         endIcon={<KeyboardArrowDownIcon />}
       >
         <PersonOutlineIcon />
-        Account
+        Hi, {userInfo?.username}
       </Button>
       <StyledMenu
         id="demo-customized-menu"
@@ -95,7 +109,7 @@ export default function CustomizedMenus2() {
         My Account
         </MenuItem>
         <MenuItem onClick={handleClose} disableRipple>
-          <FileCopyIcon />
+          <FileCopyIcon />   
         Orders
         </MenuItem>
         <MenuItem onClick={handleClose} disableRipple>
@@ -107,9 +121,9 @@ export default function CustomizedMenus2() {
        Wishlists
         </MenuItem>
         <Divider sx={{ my: 0.5 }} />
-        <MenuItem onClick={handleClose} disableRipple>
+        <MenuItem onClick={signoutHandler}  disableRipple>
           <ArchiveIcon />
-         LogOut
+          LogOut
         </MenuItem>
       </StyledMenu>
     </div>
