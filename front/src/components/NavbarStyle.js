@@ -41,6 +41,9 @@ const Right = styled.div`
   }
 
 `
+const RightDiv = styled.div`
+ display: flex
+`
 
 const SearchContainer = styled.div`
   border: 1px solid lightgray;
@@ -89,6 +92,7 @@ export {
     Left,
     Center,
     Right,
+    RightDiv,
     SearchContainer,
     Input,
     Search,
