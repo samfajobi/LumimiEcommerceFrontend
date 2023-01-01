@@ -72,7 +72,7 @@ export default function CustomizedMenus2() {
     localStorage.removeItem('userInfo');
     localStorage.removeItem('shippingAddress');
     localStorage.removeItem('paymentMethod');
-    window.location.href = '/signin';
+    window.location.href = '/';
   };
 
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -103,7 +103,7 @@ export default function CustomizedMenus2() {
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
-      >
+      > 
         <MenuItem onClick={handleClose} disableRipple>
           <EditIcon />
         My Account
@@ -126,6 +126,6 @@ export default function CustomizedMenus2() {
           LogOut
         </MenuItem>
       </StyledMenu>
-    </div>
+    </div>      
   );
 }
