@@ -20,10 +20,8 @@ router.post('/signup', async ( req, res) => {
         const userData = await newUser.save()
         res.status(200).json({
             status: 'success',
-            data: {
-                userData
-            }
-        });
+            userData
+        });   
 
     } catch(err) {  
         res.status(404).json(err) 
