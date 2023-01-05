@@ -20,6 +20,22 @@ const corsOptions ={
 
 app.use(cors(corsOptions)) // Use this after the variable declaration  
 
+const _dirname = path.dirname("");
+const buildPath = path.join(_dirname, "../front/build/");
+
+app.use(express.static(buildPath));
+
+app.get("/", (req, res ) => {  
+
+    res.sendFile(
+        path.join(__dirname, "../front/build/index.html"),
+        function(err) {
+            if (err) {
+                res.status(500).send(err)
+            }
+        }
+    )
+});
 
 
 app.use(express.json());
@@ -37,14 +53,14 @@ app.use("/api/cart", cartRoute);
 app.use("/api/orders", orderRoute);
 app.use("/api/products", productRoute);
 
-if (process.env.NODE === "production") {
-    // set Static File
-    app.use(express.static("frontend/build"))
+// if (process.env.NODE === "production") {
+//     // set Static File
+//     app.use(express.static("frontend/build"))
 
-    app.get("*", (req, res) => {
-        res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"))
-    })
-}
+//     app.get("*", (req, res) => {
+//         res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"))
+//     })
+// }
 
 
 
