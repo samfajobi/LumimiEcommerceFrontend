@@ -29,13 +29,5 @@ function App() {
   );
 }
 
- // <div>
-    //   {/* <Login /> */}
-    // <Cart />
-    // {/* <Register /> */}
-    //  <ProductsPage />
-    // {/* <ProductPage />  */}
-    // {/* <Home/> */}
-    // </div>
 
 export default App;
