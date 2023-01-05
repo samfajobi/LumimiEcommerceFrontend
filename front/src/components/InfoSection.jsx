@@ -48,7 +48,6 @@ const Button = styled.button`
   background-color: #AB33FF;
   cursor: pointer;
   border: none;
- 
 `
 
 const Icon = styled.div`
