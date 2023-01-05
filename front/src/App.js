@@ -28,4 +28,14 @@ function App() {
     </Router>
   );
 }
+
+ // <div>
+    //   {/* <Login /> */}
+    // <Cart />
+    // {/* <Register /> */}
+    //  <ProductsPage />
+    // {/* <ProductPage />  */}
+    // {/* <Home/> */}
+    // </div>
+
 export default App;
