@@ -41,7 +41,7 @@ const Container = styled.div`
 const Image = styled.img`
   height: 70%;
   z-index: 2;
-  
+    
 `
 
 const Circle = styled.div`
