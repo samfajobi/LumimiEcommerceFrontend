@@ -20,7 +20,7 @@ const Products = ({cat, sort, filters}) => {
       try {
         const response = await axios.get( 
           cat ? `https://lumimiwebsite.onrender.com/api/products?category=${cat}` 
-        : "https://lumimiwebsite.onrender.com/api/products" )
+        : "https://lumimiwebsite.onrender.com/api/products")
         console.log(response.data)
         setProducts(response.data)
       } catch(err) {
@@ -35,7 +35,7 @@ const Products = ({cat, sort, filters}) => {
 
   useEffect( () => {
     cat && setFilteredProducts(
-      products.filter((item)=> 
+      products?.filter((item)=> 
         Object.entries(filters).every(([key, value]) => 
           item[key].includes(value)
         )
@@ -67,7 +67,7 @@ const Products = ({cat, sort, filters}) => {
     <Container>
         { cat ? filteredProducts?.map( (product) => (
             <Product key={product.id} product={product}/>
-        )) : products.slice(0,8).map( (product) => (
+        )) : products.slice(0,8)?.map( (product) => (
             <Product key={product.id} product={product}/>))}
     </Container>
   )
